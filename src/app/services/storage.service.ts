@@ -45,12 +45,12 @@ export class StorageService {
   getNotes(): Note[] {
     // const user = this.getUser()
     const data = storageParser()
+
     let userNotes
 
     if(this.user) {
       if(!data[this.user]) {
         data[this.user] = []
-        console.log(data[this.user])
       }
       userNotes = data[this.user]
     }
@@ -81,6 +81,7 @@ export class StorageService {
 
 //Метод добавляет записи. Если ключа [user] нет он его создаёт и присваивает пустой массив, в который затем пушит новую запись. Если же ключ существует метод проверяет добавляет ли пользователь новую запись или запись с таким id не имеется, то в массив добавляется новая запись, иначе она ищется повторно, но уже со своим индексом, на индекс уже существующей записи и сохраняется отредактировання щапись. В конце всё сохраняется в localStorage.
   addNote(note: Note) {
+    console.log(note)
       const data = storageParser()
       if(!data[this.user]) {
         data[this.user] = []
