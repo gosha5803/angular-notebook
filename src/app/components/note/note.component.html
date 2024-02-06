@@ -46,18 +46,26 @@
         <div class="flex justify-content-between">
             <div class="note-content note-text mr-1">
                 <!--В данном блоке меняется текстовая часть записи, если мы на странице редактирования, там textarea, значение которой редактирует пользователь, иначе там просто параграф с текстом записи.-->
+                <!--Текст важно передавать через аттрибут innerHTML, так как из эдитора он приходит именно в таком формате-->
                 @if(page === 'main') {
                     <p
+                    [innerHTML]="note?.text"
                     class="pl-3 pr-2 text-lg line-height-2"
                     >
-                    {{ note?.text }}
-                </p>
+                    <!-- {{ note?.text }} -->
+                    </p>
                 } @else {
+                    <p
+                    [innerHTML]="note?.text"
+                    class="pl-3 pr-2 text-lg line-height-2"
+                    >
+                    <!-- {{ note?.text }} -->
+                    </p>
                     <form 
                     class="h-full">
                     <span class="p-float-label h-full">
                         <!-- Метод handle input передаётся со страницы редактирования и отслеживает изменение формы. -->
-                        <textarea 
+                        <!-- <textarea 
                             (change)="handleInput($event)" 
                             [value]="note?.text"
                             class="note-textarea" 
@@ -66,27 +74,12 @@
                             cols="30" 
                             >
                             </textarea>
-                            
+                             -->
                             
                             
                         </span>
                     </form>
-                    <!-- <div
-                    class="note-editor"
-                    >
-                    <div
-                    class="p-2 bg-blue-200 border-round-sm mb-2"
-                    >
-                    Отредактируйте текст записи в поле ниже.
-                    Используйте <b>Ctrl+b</b> для жирного шрифта,
-                    <b>Ctrl+i</b> для курсивного,
-                    <b>Ctrl+u</b> для подчёркнутого.
-                    </div>
-                    <app-editor
-                    [initialText]="note?.text"
-                    [handleInput]="handleInput"
-                    />
-                    </div> -->
+                    
                 }
             </div>
             

@@ -9,7 +9,7 @@
 
 .editor-alert{
     position: absolute;
-    top: -400px;
-    left: -250px;
+    top: 2px;
+    right: 10px;
     width: 300px;
 }

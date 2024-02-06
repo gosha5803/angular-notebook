@@ -6,12 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { StorageService } from '../../services/storage.service';
 import { AlertComponent } from '../../components/alert/alert.component';
 // import { IAlert } from '../../../models/customAlert';
-// import { EditorComponent } from '../../components/editor/editor.component';
+import { EditorComponent } from '../../components/editor/editor.component';
 
 @Component({
   selector: 'app-create-post',
   standalone: true,
   imports: [
+    EditorComponent,
     RouterLink,
     NoteComponent,
     ButtonModule,
@@ -75,10 +76,11 @@ export class CreatePostComponent {
     }
   }
 
-  //Метод присваивает значение textarea ключу text текущей записи.
+  //Метод присваивает значение editora ключу text текущей записи.
   handleTextArea(ev: any) {
-    // console.log(this.note)
+    console.log(this.note)
+    console.log(ev)
     if(this.note)
-    this.note.text = ev.target.value
+    this.note.text = ev
   }
 }

@@ -1,12 +1,28 @@
 <div class="container relative">
     
     <!--Компонент записи. В него передаётся текущая запись для отрисовки, страница родитель 'edit' и два метода для обработки изображений и текста.-->
+    <div
+        class="note-editor"
+        >
+        <div
+        class="p-3 bg-blue-200 border-round-sm mb-2"
+        >
+        Отредактируйте текст записи в поле ниже.
+        Используйте <b>Ctrl+b</b> для жирного шрифта,
+        <b>Ctrl+i</b> для курсивного.
+        </div>
+        <app-editor
+        [initialText]="note?.text"
+        (contentEmmiter)="handleTextArea($event)"
+        />
+    </div>
+
     <app-note
     [note]="note"
     [page]=" 'edit' "
     [onUpload]="onUpload"
-    [handleInput]="handleTextArea"
     />
+    
     <!--
         Кнопки сохранить изменения, которая вызывает метод save и кнопка отмена просто редиректит на главную.
     -->
