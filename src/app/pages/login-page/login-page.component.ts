@@ -31,13 +31,8 @@ export class LoginPageComponent {
 
   constructor(
     private auth: AuthService, //Сервиc отвечает непосредственно за осуществление запросов на API Firebase.
-    private router: Router,
-    
-  ) {
-    if(this.auth.chekForUser()) {
-      this.router.navigate(['/'])
-    }
-  }
+    private router: Router 
+  ) {}
 
   passwordChangeHandler(ev: any) {
     this.password.set(ev.target.value)

@@ -53,4 +53,5 @@ export class NoteComponent {
         this.storageService.removeNote(this.note.id)
       }
     }
+   
 }

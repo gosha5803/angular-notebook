@@ -70,7 +70,6 @@ export class CreatePostComponent {
 
   //Метод сохраняет состояние текущей записи в хранилище через метод сервиса.
   onSave() {
-    console.log('sas')
     if(this.note){
       this.storage.addNote(this.note)
     }
