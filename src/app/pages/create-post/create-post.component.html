@@ -1,0 +1,28 @@
+<div class="container relative">
+    
+    <!--Компонент записи. В него передаётся текущая запись для отрисовки, страница родитель 'edit' и два метода для обработки изображений и текста.-->
+    <app-note
+    [note]="note"
+    [page]=" 'edit' "
+    [onUpload]="onUpload"
+    [handleInput]="handleTextArea"
+    />
+    <!--
+        Кнопки сохранить изменения, которая вызывает метод save и кнопка отмена просто редиректит на главную.
+    -->
+    <div class="flex justify-content-end mt-2">
+        <p-button
+        [routerLink]=" '/' "
+        (onClick)="onSave()"
+        severity="success"
+        [rounded]="true"
+        >Сохранить</p-button>
+        <p-button
+        [routerLink]=" '/' "
+        class="ml-2"
+        severity="danger"
+        [rounded]="true"
+        >Отменить изменения</p-button>
+    </div>
+</div>
+

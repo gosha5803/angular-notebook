@@ -1,0 +1,11 @@
+.add-post-btn{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+.logout-btn{
+    position: fixed;
+    top: 5px;
+    left: 60px;
+}

@@ -1,0 +1,99 @@
+<div class="bg-blue-200 note-card pl-1 pr-3 {{ isDeleted ? 'hidden' : 'block' }}">
+    
+    <div class="flex flex-column bg-blue-200">
+        <div class="flex justify-content-between align-items-center">
+            <div
+            class="ml-3"
+            >{{ formateDate(note?.time) }}</div>
+<!--Блок ниже вставляет кнопки удалить и редактировать, если флаг страницы равен главная, кнопка удалить вызвает метод удаления, а редактировать редиректит на страницу редактирования. 
+    В другом случае мы находимся на странице создания или редактированя, на которой вместо этих кнопока появляется кнопка загрузить изображение. 
+-->
+            @if(page === 'main') {
+                <div>
+                    <p-button
+                    (onClick)="deleteNote()"
+                    class="mr-2"
+                    severity="danger"
+                    icon="pi pi-trash"
+                    [rounded]="true"
+                    />
+                    <p-button
+                    [routerLink]=" 'edit/' + note?.id "
+                    severity="info"
+                    icon="pi pi-pencil"
+                    [rounded]="true"
+                    />
+                </div>
+            
+            } @else {
+                <!--Метод onUpload передаётся с компонента страницы редактирования/создания-->
+                <label 
+                for="file-upload"
+                class="custom-file-upload">
+                    Загрузить фото
+                </label>
+                <input 
+                (change)="onUpload($event)"
+                id="file-upload" 
+                #file
+                type="file"
+                accept="image/*"
+                hidden
+                />
+            }
+        </div>
+
+        <div class="flex justify-content-between">
+            <div class="note-content note-text mr-1">
+                <!--В данном блоке меняется текстовая часть записи, если мы на странице редактирования, там textarea, значение которой редактирует пользователь, иначе там просто параграф с текстом записи.-->
+                @if(page === 'main') {
+                    <p
+                    class="pl-3 pr-2 text-lg line-height-2"
+                    >
+                    {{ note?.text }}
+                </p>
+                } @else {
+                    <form 
+                    class="h-full">
+                    <span class="p-float-label h-full">
+                        <!-- Метод handle input передаётся со страницы редактирования и отслеживает изменение формы. -->
+                        <textarea 
+                            (change)="handleInput($event)" 
+                            [value]="note?.text"
+                            class="note-textarea" 
+                            id="float-input" 
+                            rows="5" 
+                            cols="30" 
+                            >
+                            </textarea>
+                            
+                            
+                            
+                        </span>
+                    </form>
+                    <!-- <div
+                    class="note-editor"
+                    >
+                    <div
+                    class="p-2 bg-blue-200 border-round-sm mb-2"
+                    >
+                    Отредактируйте текст записи в поле ниже.
+                    Используйте <b>Ctrl+b</b> для жирного шрифта,
+                    <b>Ctrl+i</b> для курсивного,
+                    <b>Ctrl+u</b> для подчёркнутого.
+                    </div>
+                    <app-editor
+                    [initialText]="note?.text"
+                    [handleInput]="handleInput"
+                    />
+                    </div> -->
+                }
+            </div>
+            
+            <div class="note-content card-image">
+                <img class="card-image-item" [src]="note?.image">
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div
+    class="editor-alert"
+>
+    @if (alert.message) {
+        <app-alert
+        [alertSettings]=" alert "
+        />
+    }
+</div>
+<div
+class="editor"
+#editor
+>
+</div>
+<div class="mt-2">
+    <p-button type="button" (click)="showEditorData()">
+        Сохранить текст
+    </p-button>
+</div>

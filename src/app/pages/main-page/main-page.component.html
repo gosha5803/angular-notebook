@@ -1,0 +1,32 @@
+<!--
+    Первая кнопка перебрасывает на путь crete на страницу create-note. Все элементы с префиксом p это модули primeng библиотеки.
+    Вторая кнопка вызывает метод выхода из профиля.
+    А в div рендерятся все записи, через цикл for. В каждый компонент-запись передаётся состояние user, чтобы также отслеживать авторизовани ли пользователь и передаётся конкретная запись.
+-->
+<p-button
+[routerLink]=" '/create' "
+class="add-post-btn"
+icon="pi pi-plus"
+/>
+<p-button
+(onClick)="logout()"
+severity="danger"
+class="logout-btn"
+label="Выйти"
+/>
+
+<div
+    class="p-2 absolute right-0 bg-blue-500 border-round-md text-xl font-bold text-yellow-50 mt-1 mr-2"
+>
+    {{ user }}
+</div>
+
+<div
+class="container"
+>
+    @for (note of notes; track note.id) {
+        <app-note
+        [note]="note"
+        />
+    }
+</div>

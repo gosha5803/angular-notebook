@@ -1,0 +1,48 @@
+<div
+class="flex justify-content-center surface-200 absolute top-0 right-0 left-0 bottom-0 z-5"
+>
+    @if (alert.message) {
+        <app-alert
+        [alertSettings]=" alert "
+        />
+    }
+    <p-card
+    class="mt-8"
+    >
+        <div class="flex flex-column align-items-center w-17rem pb-0">
+            <input
+            (input)="emailChangeHandler($event)"
+            class="w-full mb-4"
+            placeholder="Логин"
+            pInputText
+            type="email"
+            />
+            <input
+            (input)="passwordChangeHandler($event)"
+            class="w-full mb-4"
+            placeholder="Пароль"
+            type="password"
+            pInputText
+            />
+            
+            <p-button
+            (onClick)="login()"
+            [label]="process === 'signIn' ? 'Войти' : 'Зарегистрировться' "
+            />
+            <div class="flex justify-content-between w w-full mt-3">
+                <p-button
+                [text]="true"
+                (onClick)="swithProcess()"
+                label="Вход"
+                [disabled]="process === 'signIn'"
+                />
+                <p-button
+                (onClick)="swithProcess()"
+                [text]="true"
+                [disabled]="process !== 'signIn'"
+                label="Регистрация"
+                />
+            </div>
+        </div>
+    </p-card>
+</div>

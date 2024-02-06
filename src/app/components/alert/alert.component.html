@@ -1,0 +1,10 @@
+<div
+(click)="hideAlert()"
+class="card pt-1 pb-1 pl-4 pr-4 border-round-md my-alert 
+bg-{{ alertSettings.color }}-200 
+{{ alertSettings.isVisible ? 'opacity-100' : 'opacity-0' }} 
+transition-duration-200">
+    <p
+    class="font-bold text-{{ alertSettings.color }}-900"
+    > {{ alertSettings.message }} </p>
+</div>
