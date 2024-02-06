@@ -1,27 +1,17 @@
-# TestCase10
+# Общая информация
+Пртложение разработано на Angular 17. Для роутинга использовался встроенный роутер. Используемые библиотеки стилей `primeNg` и `primeFlex`.
+Хранение данных реализовано в localStorage.
+Авторизация и регистрация реализованы через firebase.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+В начале приложение проверяет поле user в вашем localStorage, его не должно быть, и тогда оно перебрасывает со всех роутов на страницу авторизации. 
+# Аторизация
+Два аккаунта зарегистрированы в сервисе, можно посмотреть функционал через них, также можно зарегистрировать свой аккаунт.
+Аккаунты: [
+    {login:g@g.ru password:009988},
+    {login:lev200@w.ru password:009988},
+]
+# Запуск
+Для запуска приложения запустите команду `ng serve`.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# EditorJS
+В приложении не реализован функционал форматирования текста записи жирным, курсивом и подчёркнутым. В нём есть закомментированные куски кода, где я пытался интегрировать EditorJS, но дедлайны не позволили. Также в комментариях есть мысли по доработке проекта за рамками ТЗ.
