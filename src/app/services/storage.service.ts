@@ -46,9 +46,11 @@ export class StorageService {
     // const user = this.getUser()
     const data = storageParser()
     let userNotes
+
     if(this.user) {
       if(!data[this.user]) {
         data[this.user] = []
+        console.log(data[this.user])
       }
       userNotes = data[this.user]
     }
